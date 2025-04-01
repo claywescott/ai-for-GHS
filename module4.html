@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: AI Applications in Global Health Security</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #005a87;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #005a87;
+        }
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #005a87;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #004a70;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .learning-objectives {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .learning-objectives h3 {
+            margin-top: 0;
+        }
+        .example-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .example-title {
+            font-weight: bold;
+            color: #005a87;
+            margin-bottom: 10px;
+        }
+        .example-content {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #005a87;
+        }
+        .key-points {
+            background-color: #f0f7fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .progress-container {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            height: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .progress-bar {
+            background-color: #28a745;
+            height: 20px;
+            border-radius: 5px;
+            width: 80%;
+        }
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-weight: bold;
+            line-height: 20px;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+        }
+        .quiz-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+            border: 1px solid #ddd;
+        }
+        .quiz-question {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .quiz-options {
+            margin-bottom: 20px;
+        }
+        .quiz-option {
+            margin-bottom: 10px;
+        }
+        .result-message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .columns {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .column {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .case-study {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-left: 4px solid #005a87;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .case-study-title {
+            font-weight: bold;
+            color: #005a87;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .application-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .application-title {
+            font-weight: bold;
+            color: #005a87;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .application-description {
+            margin-bottom: 10px;
+        }
+        .application-examples {
+            background-color: #f0f7fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .certificate-container {
+            border: 2px solid #005a87;
+            padding: 30px;
+            border-radius: 5px;
+            margin: 40px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+            display: none;
+        }
+        .certificate-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #005a87;
+            margin-bottom: 20px;
+        }
+        .certificate-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .certificate-name {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .certificate-date {
+            margin-top: 30px;
+            font-style: italic;
+        }
+        .certificate-logo {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GCSP AI Training</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: 80%"></div>
+            <div class="progress-text">80% Complete</div>
+        </div>
+
+        <h1>Module 4: AI Applications in Global Health Security</h1>
+
+        <div class="learning-objectives">
+            <h3>Learning Objectives</h3>
+            <ul>
+                <li>Understand key applications of AI in global health security</li>
+                <li>Identify specific use cases where AI can enhance disease surveillance and outbreak response</li>
+                <li>Recognize the potential and limitations of AI in health emergency management</li>
+                <li>Apply AI tools to address real-world health security challenges</li>
+            </ul>
+        </div>
+
+        <h2>Why AI Matters for Global Health Security</h2>
+        
+        <p>Artificial intelligence is transforming how we approach global health security challenges by enhancing our ability to detect, predict, prepare for, and respond to health threats. Here's why AI is becoming increasingly important in this field:</p>
+
+        <div class="columns">
+            <div class="column">
+                <h3>Data Processing at Scale</h3>
+                <p>AI can analyze vast amounts of health data from diverse sources (clinical reports, social media, environmental monitoring) far more rapidly than traditional methods, enabling early detection of potential outbreaks.</p>
+                
+                <h3>Pattern Recognition</h3>
+                <p>AI excels at identifying subtle patterns and anomalies in data that might indicate emerging health threats before they become obvious through traditional surveillance methods.</p>
+            </div>
+            <div class="column">
+                <h3>Predictive Capabilities</h3>
+                <p>AI models can forecast disease spread patterns, helping health authorities allocate resources more effectively and implement targeted interventions.</p>
+                
+                <h3>Accessibility and Efficiency</h3>
+                <p>AI tools can make specialized health security knowledge more accessible to regions with limited resources or expertise, democratizing access to critical information.</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="/api/placeholder/600/350" alt="AI in Global Health Security" />
+        </div>
+
+        <h2>Key Applications of AI in Global Health Security</h2>
+
+        <div class="application-card">
+            <div class="application-title">1. Disease Surveillance and Early Warning Systems</div>
+            <div class="application-description">
+                <p>AI systems can monitor and analyze data from multiple sources to detect unusual patterns that might indicate an emerging outbreak, potentially days or weeks before traditional surveillance methods.</p>
+            </div>
+            <div class="application-examples">
+                <h4>Examples:</h4>
+                <ul>
+                    <li>Natural language processing to analyze social media posts for unusual symptom reports</li>
+                    <li>Machine learning algorithms that detect anomalies in hospital admission data</li>
+                    <li>AI systems monitoring environmental factors known to correlate with specific disease outbreaks</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="application-card">
+            <div class="application-title">2. Outbreak Analytics and Modeling</div>
+            <div class="application-description">
+                <p>AI can create sophisticated models to predict how diseases might spread, helping public health officials make informed decisions about resource allocation and intervention strategies.</p>
+            </div>
+            <div class="application-examples">
+                <h4>Examples:</h4>
+                <ul>
+                    <li>Predictive models of disease transmission based on population movement data</li>
+                    <li>Simulation of different intervention scenarios to identify optimal strategies</li>
+                    <li>Real-time adjustment of epidemiological models as new data becomes available</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="application-card">
+            <div class="application-title">3. Rapid Information Synthesis and Knowledge Management</div>
+            <div class="application-description">
+                <p>During health emergencies, AI can quickly synthesize and summarize vast amounts of scientific literature, reports, and guidelines to provide decision-makers with the most relevant, up-to-date information.</p>
+            </div>
+            <div class="application-examples">
+                <h4>Examples:</h4>
+                <ul>
+                    <li>Summarizing new research findings on emerging pathogens</li>
+                    <li>Creating customized briefings on specific aspects of outbreak response</li>
+                    <li>Comparing protocols and guidelines across different jurisdictions or organizations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="application-card">
+            <div class="application-title">4. Community Education and Communication</div>
+            <div class="application-description">
+                <p>AI can help develop and tailor risk communication strategies for different audiences, ensuring that critical health information is accessible, culturally appropriate, and effectively delivered.</p>
+            </div>
+            <div class="application-examples">
+                <h4>Examples:</h4>
+                <ul>
+                    <li>Generating educational materials tailored to specific communities or demographics</li>
+                    <li>Creating message templates for different scenarios that can be rapidly deployed</li>
+                    <li>Analyzing communication effectiveness and suggesting improvements</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="application-card">
+            <div class="application-title">5. Resource Optimization and Logistics</div>
+            <div class="application-description">
+                <p>During health emergencies, AI can help optimize the allocation of limited resources (vaccines, medications, medical staff) to maximize impact and minimize mortality.</p>
+            </div>
+            <div class="application-examples">
+                <h4>Examples:</h4>
+                <ul>
+                    <li>Predicting areas that will need additional medical supplies or personnel</li>
+                    <li>Optimizing vaccine distribution strategies based on population risk factors</li>
+                    <li>Managing supply chains and tracking resources during emergency responses</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Case Studies: AI in Action</h2>
+
+        <div class="case-study">
+            <div class="case-study-title">Case Study 1: Early Warning of the COVID-19 Outbreak</div>
+            <p>In late December 2019, the AI-powered disease surveillance system BlueDot detected unusual pneumonia cases in Wuhan, China, and issued an alert to its clients about a potential outbreak. This warning came several days before official notifications from the WHO or national health agencies.</p>
+            <p><strong>Key Insight:</strong> AI systems that scan diverse information sources (news reports, airline ticketing data, animal disease networks) can identify potential outbreaks earlier than traditional surveillance methods.</p>
+        </div>
+
+        <div class="case-study">
+            <div class="case-study-title">Case Study 2: AI-Assisted Contact Tracing for Ebola</div>
+            <p>During Ebola outbreaks in West Africa, researchers used machine learning algorithms to optimize contact tracing strategies, prioritizing the most likely transmission chains and helping overburdened public health workers focus their efforts where they would be most effective.</p>
+            <p><strong>Key Insight:</strong> AI can enhance traditional epidemiological methods by adding predictive capabilities that help prioritize limited resources during emergency responses.</p>
+        </div>
+
+        <h2>Practical Applications for Health Security Professionals</h2>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>How AI Can Help</th>
+                <th>Example Prompt</th>
+            </tr>
+            <tr>
+                <td>Developing Response Plans</td>
+                <td>Generate comprehensive, structured emergency response plans tailored to specific contexts</td>
+                <td>"Help me develop a comprehensive response plan for a suspected mpox outbreak in a refugee camp setting with limited medical resources. Include sections on case identification, isolation protocols, contact tracing, and risk communication."</td>
+            </tr>
+            <tr>
+                <td>Policy Analysis</td>
+                <td>Analyze health regulations and policies to identify gaps or inconsistencies</td>
+                <td>"Compare the surveillance requirements in the 2005 International Health Regulations with the amended regulations of 2024. Identify key changes and potential implementation challenges for low-resource countries."</td>
+            </tr>
+            <tr>
+                <td>Training Development</td>
+                <td>Create educational materials and training scenarios for health security professionals</td>
+                <td>"Design a tabletop exercise scenario for a novel respiratory pathogen outbreak, including background materials, progression timeline, and discussion questions for participants from multiple sectors."</td>
+            </tr>
+            <tr>
+                <td>Risk Communication</td>
+                <td>Develop effective public health messages for different audiences</td>
+                <td>"Help me draft risk communication messages about vaccine safety for three different audiences: healthcare workers, community leaders, and the general public. Each message should address common concerns and be culturally sensitive."</td>
+            </tr>
+        </table>
+
+        <h2>Limitations and Ethical Considerations</h2>
+
+        <div class="key-points">
+            <h3>Important Considerations When Using AI in Health Security:</h3>
+            <ul>
+                <li><strong>Data Quality and Biases</strong>: AI systems are only as good as the data they're trained on. Biased or incomplete data can lead to flawed analyses or recommendations.</li>
+                <li><strong>Privacy and Security</strong>: The use of AI in health surveillance must balance public health needs with privacy rights and data protection.</li>
+                <li><strong>Verification and Validation</strong>: AI outputs should be verified by human experts, especially for critical health security decisions.</li>
+                <li><strong>Equity and Access</strong>: Ensure AI implementation doesn't exacerbate existing health disparities between populations.</li>
+                <li><strong>Transparency</strong>: Decision-makers should understand how AI-generated recommendations are produced.</li>
+            </ul>
+        </div>
+
+        <h2>Module 4 Knowledge Check</h2>
+        
+        <div class="quiz-container">
+            <div class="quiz-question">1. Which of the following is a key advantage of using AI in disease surveillance?</div>
+            <div class="quiz-options">
+                <div class="quiz-option">
+                    <input type="radio" name="q1" id="q1-a" value="a">
+                    <label for="q1-a">It completely eliminates the need for traditional surveillance methods</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" id="q1-b" value="b">
+                    <label for="q1-b">It can analyze large volumes of diverse data sources much faster than human analysts</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" id="q1-c" value="c">
+                    <label for="q1-c">It always provides perfectly accurate predictions without any false positives</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" id="q1-d" value="d">
+                    <label for="q1-d">It requires no human oversight or verification</label>
+                </div>
+            </div>
+
+            <div class="quiz-question">2. What is an important ethical consideration when implementing AI for health security applications?</div>
+            <div class="quiz-options">
+                <div class="quiz-option">
+                    <input type="radio" name="q2" id="q2-a" value="a">
+                    <label for="q2-a">Ensuring that the technology is as expensive as possible</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" id="q2-b" value="b">
+                    <label for="q2-b">Limiting access to AI tools to only the most developed countries</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" id="q2-c" value="c">
+                    <label for="q2-c">Balancing public health needs with privacy rights and data protection</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" id="q2-d" value="d">
+                    <label for="q2-d">Replacing all human decision-making with automated systems</label>
+                </div>
+            </div>
+
+            <button id="submit-quiz" class="btn">Submit Answers</button>
+            
+            <div id="result-message" class="result-message"></div>
+        </div>
+
+        <div id="certificate-container" class="certificate-container">
+            <div class="certificate-logo">
+                <img src="/api/placeholder/200/100" alt="GCSP Logo" />
+            </div>
+            <div class="certificate-title">Certificate of Completion</div>
+            <div class="certificate-subtitle">This is to certify that</div>
+            <div class="certificate-name" id="certificate-name">Participant Name</div>
+            <p>has successfully completed the</p>
+            <h3>AI for Global Health Security</h3>
+            <p>A foundational course on applying artificial intelligence to enhance global health security</p>
+            <div class="certificate-date" id="certificate-date">April 2025</div>
+        </div>
+
+        <div class="module-navigation">
+            <a href="module3.html" class="btn btn-secondary">Previous: Crafting Effective Prompts</a>
+            <a href="final_quiz.html" class="btn" id="next-module">Take Final Quiz</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Clay G. Wescott | This course is part of the "Addressing Challenges in Global Health Security" program</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.getElementById('submit-quiz');
+            const resultMessage = document.getElementById('result-message');
+            const nextButton = document.getElementById('next-module');
+            const certificateContainer = document.getElementById('certificate-container');
+            
+            submitButton.addEventListener('click', function() {
+                const q1Answer = document.querySelector('input[name="q1"]:checked')?.value;
+                const q2Answer = document.querySelector('input[name="q2"]:checked')?.value;
+                
+                if (!q1Answer || !q2Answer) {
+                    resultMessage.textContent = "Please answer all questions.";
+                    resultMessage.className = "result-message incorrect";
+                    resultMessage.style.display = "block";
+                    return;
+                }
+                
+                let correct = 0;
+                if (q1Answer === 'b') correct++;
+                if (q2Answer === 'c') correct++;
+                
+                if (correct === 2) {
+                    resultMessage.textContent = "Congratulations! You've completed all modules of the AI for Global Health Security course.";
+                    resultMessage.className = "result-message correct";
+                    
+                    // Update progress in localStorage
+                    const progress = JSON.parse(localStorage.getItem('courseProgress')) || {};
+                    progress.module4 = true;
+                    localStorage.setItem('courseProgress', JSON.stringify(progress));
+                    
+                    // Show certificate
+                    certificateContainer.style.display = "block";
+                    
+                    // Get participant name from localStorage or prompt for it
+                    let participantName = localStorage.getItem('participantName');
+                    if (!participantName) {
+                        participantName = prompt("Please enter your name for the certificate:", "");
+                        if (participantName) {
+                            localStorage.setItem('participantName', participantName);
+                        } else {
+                            participantName = "GCSP Participant";
+                        }
+                    }
+                    
+                    // Update certificate
+                    document.getElementById('certificate-name').textContent = participantName;
+                    
+                    // Update date
+                    const currentDate = new Date();
+                    const options = { year: 'numeric', month: 'long' };
+                    document.getElementById('certificate-date').textContent = currentDate.toLocaleDateString('en-US', options);
+                    
+                    // Change next button text
+                    nextButton.textContent = "Course Complete!";
+                    nextButton.href = "homepage.html";
+                } else {
+                    resultMessage.textContent = `You got ${correct} out of 2 questions correct. Please review and try again.`;
+                    resultMessage.className = "result-message incorrect";
+                }
+                
+                resultMessage.style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>

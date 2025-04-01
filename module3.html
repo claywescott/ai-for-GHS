@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Crafting Effective Prompts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #005a87;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #005a87;
+        }
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #005a87;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #004a70;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .learning-objectives {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .learning-objectives h3 {
+            margin-top: 0;
+        }
+        .example-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .example-title {
+            font-weight: bold;
+            color: #005a87;
+            margin-bottom: 10px;
+        }
+        .example-content {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #005a87;
+        }
+        .key-points {
+            background-color: #f0f7fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .progress-container {
+            background-color: #e9ecef;
+            border-radius: 5px;
+            height: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .progress-bar {
+            background-color: #28a745;
+            height: 20px;
+            border-radius: 5px;
+            width: 60%;
+        }
+        .progress-text {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-weight: bold;
+            line-height: 20px;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+        }
+        .quiz-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+            border: 1px solid #ddd;
+        }
+        .quiz-question {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .quiz-options {
+            margin-bottom: 20px;
+        }
+        .quiz-option {
+            margin-bottom: 10px;
+        }
+        .result-message {
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .columns {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .column {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .prompt-comparison {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .prompt-card {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+        }
+        .prompt-card.ineffective {
+            border-left: 4px solid #dc3545;
+        }
+        .prompt-card.effective {
+            border-left: 4px solid #28a745;
+        }
+        .prompt-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .ineffective-header {
+            color: #dc3545;
+        }
+        .effective-header {
+            color: #28a745;
+        }
+        .prompt-text {
+            font-family: monospace;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .prompt-analysis {
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        .practice-area {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .template-container {
+            background-color: #f0f7fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border: 1px dashed #005a87;
+        }
+        .template-title {
+            font-weight: bold;
+            color: #005a87;
+            margin-bottom: 10px;
+        }
+        .template-content {
+            font-family: monospace;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GCSP AI Training</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: 60%"></div>
+            <div class="progress-text">60% Complete</div>
+        </div>
+
+        <h1>Module 3: Crafting Effective Prompts</h1>
+
+        <div class="learning-objectives">
+            <h3>Learning Objectives</h3>
+            <ul>
+                <li>Understand the principles of effective prompt design</li>
+                <li>Learn how to structure prompts for different health security tasks</li>
+                <li>Practice creating prompts that generate accurate, relevant information</li>
+                <li>Identify common pitfalls in prompt formulation and how to avoid them</li>
+            </ul>
+        </div>
+
+        <h2>The Art of Prompt Engineering</h2>
+        
+        <p>Prompt engineering is the process of designing input queries that guide AI models to generate the most useful, accurate, and relevant outputs. In health security contexts, well-crafted prompts can make the difference between receiving generic information and getting actionable, insightful guidance.</p>
+
+        <div class="image-container">
+            <img src="/api/placeholder/600/300" alt="Prompt Engineering Concept" />
+        </div>
+
+        <h2>Key Principles of Effective Prompts</h2>
+
+        <div class="columns">
+            <div class="column">
+                <h3>Be Clear and Specific</h3>
+                <p>Clear, specific prompts help the AI understand exactly what you're asking for. Avoid vague or ambiguous language that could be interpreted in multiple ways.</p>
+                
+                <h3>Provide Context</h3>
+                <p>Include relevant background information and context to help the AI generate more accurate and useful responses, especially for specialized health security topics.</p>
+                
+                <h3>Structure Your Request</h3>
+                <p>Organize complex prompts into clear sections or bullet points to help the AI process and respond to each part of your request.</p>
+            </div>
+            <div class="column">
+                <h3>Define the Format</h3>
+                <p>Specify the desired format for the response (e.g., bullet points, table, step-by-step guide) to receive information in the most useful way.</p>
+                
+                <h3>Ask for Reasoning</h3>
+                <p>Request that the AI explain its reasoning or provide justification for recommendations, especially for complex health security decisions.</p>
+                
+                <h3>Iterate and Refine</h3>
+                <p>Treat prompting as an iterative process. If you don't get the desired response, refine your prompt and try again.</p>
+            </div>
+        </div>
+
+        <h2>Effective vs. Ineffective Prompts</h2>
+
+        <div class="prompt-comparison">
+            <div class="prompt-card ineffective">
+                <div class="prompt-header ineffective-header">Ineffective Prompt</div>
+                <div class="prompt-text">Tell me about epidemics.</div>
+                <div class="prompt-analysis">
+                    This prompt is too vague, lacks context, and doesn't specify what information about epidemics is needed. It's likely to generate a general overview rather than actionable information.
+                </div>
+            </div>
+            
+            <div class="prompt-card effective">
+                <div class="prompt-header effective-header">Effective Prompt</div>
+                <div class="prompt-text">Provide a structured analysis of the key factors health officials should monitor to identify an emerging respiratory epidemic in its early stages. Include specific data sources, surveillance techniques, and early warning indicators. Format your response as a bulleted checklist that could be used in a rapid response protocol.</div>
+                <div class="prompt-analysis">
+                    This prompt clearly defines the topic, specifies the purpose, requests particular types of information, and indicates the desired format for the response.
+                </div>
+            </div>
+        </div>
+
+        <div class="prompt-comparison">
+            <div class="prompt-card ineffective">
+                <div class="prompt-header ineffective-header">Ineffective Prompt</div>
+                <div class="prompt-text">How do I respond to mpox?</div>
+                <div class="prompt-analysis">
+                    This prompt is ambiguous (personal or institutional response?), lacks specificity about the context or phase of the outbreak, and doesn't clarify what kind of response is needed.
+                </div>
+            </div>
+            
+            <div class="prompt-card effective">
+                <div class="prompt-header effective-header">Effective Prompt</div>
+                <div class="prompt-text">As a regional health coordinator in a country that has just confirmed its first imported case of mpox, I need to develop a comprehensive response plan. Help me create a 7-day action plan that covers: (1) surveillance and case detection protocols, (2) contact tracing procedures, (3) isolation guidelines, (4) public health communication strategy, and (5) vaccine/treatment resource allocation. For each component, provide specific actionable steps backed by WHO recommendations where applicable.</div>
+                <div class="prompt-analysis">
+                    This prompt defines the user's role, provides specific context about the situation, outlines distinct categories of information needed, and specifies that recommendations should align with authoritative guidelines.
+                </div>
+            </div>
+        </div>
+
+        <h2>Prompt Templates for Health Security Applications</h2>
+
+        <div class="template-container">
+            <div class="template-title">Template 1: Analyzing Health Security Regulations</div>
+            <div class="template-content">
+                I need an analysis of [specific health regulation or policy]. Please provide:
+                
+                1. A summary of the key provisions in plain language
+                2. The main obligations for [relevant stakeholders]
+                3. How this compares to [related policies or international standards]
+                4. Potential implementation challenges in [specific context]
+                5. Recommendations for effective compliance
+                
+                Present your analysis in a structured format with clear headings and bullet points where appropriate.
+            </div>
+        </div>
+
+        <div class="template-container">
+            <div class="template-title">Template 2: Developing Response Protocols</div>
+            <div class="template-content">
+                Help me develop a response protocol for [specific health security threat] in [specific setting/context]. 
+                
+                The protocol should be structured as follows:
+                
+                1. Initial Assessment Procedures (first 24 hours)
+                2. Immediate Containment Measures
+                3. Stakeholder Communication Plan
+                4. Resource Mobilization Strategy
+                5. Data Collection and Reporting Requirements
+                6. Criteria for Escalation/De-escalation
+                
+                For each section, include practical, actionable steps that align with [relevant guidelines/standards]. The protocol should be suitable for [target audience, e.g., field workers, health officials] with [level of expertise].
+            </div>
+        </div>
+
+        <div class="template-container">
+            <div class="template-title">Template 3: Information Synthesis</div>
+            <div class="template-content">
+                I need to understand the current state of knowledge on [specific health security topic]. 
+                
+                Please synthesize information on:
+                - Current scientific consensus
+                - Areas of uncertainty or debate
+                - Recent developments (within the past 2-3 years)
+                - Practical implications for [specific context]
+                
+                Focus on information from reliable sources such as peer-reviewed literature, WHO guidance, and official public health agencies. Where appropriate, indicate the strength of evidence behind different claims.
+            </div>
+        </div>
+
+        <h2>Practical Tips for Health Security Prompts</h2>
+
+        <table>
+            <tr>
+                <th>Tip</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Specify your professional context</td>
+                <td>"As a public health official in a low-resource setting..."</td>
+            </tr>
+            <tr>
+                <td>Define the scope clearly</td>
+                <td>"Focus specifically on water-borne disease surveillance in urban areas"</td>
+            </tr>
+            <tr>
+                <td>Request evidence-based information</td>
+                <td>"Provide recommendations based on peer-reviewed literature and WHO guidelines"</td>
+            </tr>
+            <tr>
+                <td>Ask for multiple perspectives</td>
+                <td>"Present both the advantages and limitations of this approach"</td>
+            </tr>
+            <tr>
+                <td>Specify the level of technical detail</td>
+                <td>"Explain this in terms suitable for community health workers with basic training"</td>
+            </tr>
+            <tr>
+                <td>Request practical applications</td>
+                <td>"Include concrete examples of how this has been implemented successfully"</td>
+            </tr>
+        </table>
+
+        <h2>Module 3 Knowledge Check</h2>
+        
+        <div class="quiz-container">
+            <div class="quiz-question">1. Which of the following would be the most effective prompt for getting AI assistance with creating a community education program about infectious disease prevention?</div>
+            <div class="quiz-options">
+                <div class="quiz-option">
+                    <input type="radio" name="q1" id="q1-a" value="a">
+                    <label for="q1-a">Tell me about disease prevention.</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" id="q1-b" value="b">
+                    <label for="q1-b">How do I create a community education program?</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" id="q1-c" value="c">
+                    <label for="q1-c">Help me design a 3-session community education program about preventing mosquito-borne diseases for a rural community with limited healthcare access. The program should include visual aids, simple prevention techniques, and methods to evaluate its effectiveness.</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" id="q1-d" value="d">
+                    <label for="q1-d">What are the best practices for community education?</label>
+                </div>
+            </div>
+
+            <div class="quiz-question">2. Which of the following is NOT a recommended principle for effective prompt design?</div>
+            <div class="quiz-options">
+                <div class="quiz-option">
+                    <input type="radio" name="q2" id="q2-a" value="a">
+                    <label for="q2-a">Keep prompts as short and vague as possible to allow the AI maximum creative freedom</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" id="q2-b" value="b">
+                    <label for="q2-b">Include relevant context and background information</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" id="q2-c" value="c">
+                    <label for="q2-c">Specify the desired format for the response</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" id="q2-d" value="d">
+                    <label for="q2-d">Structure complex requests into clear sections</label>
+                </div>
+            </div>
+
+            <button id="submit-quiz" class="btn">Submit Answers</button>
+            
+            <div id="result-message" class="result-message"></div>
+        </div>
+
+        <div class="module-navigation">
+            <a href="module2.html" class="btn btn-secondary">Previous: Getting Started with AI Tools</a>
+            <a href="module4.html" class="btn" id="next-module">Next: AI Applications in Global Health Security</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Clay Wescott | This course is part of the "Addressing Challenges in Global Health Security" program</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.getElementById('submit-quiz');
+            const resultMessage = document.getElementById('result-message');
+            const nextButton = document.getElementById('next-module');
+            
+            submitButton.addEventListener('click', function() {
+                const q1Answer = document.querySelector('input[name="q1"]:checked')?.value;
+                const q2Answer = document.querySelector('input[name="q2"]:checked')?.value;
+                
+                if (!q1Answer || !q2Answer) {
+                    resultMessage.textContent = "Please answer all questions.";
+                    resultMessage.className = "result-message incorrect";
+                    resultMessage.style.display = "block";
+                    return;
+                }
+                
+                let correct = 0;
+                if (q1Answer === 'c') correct++;
+                if (q2Answer === 'a') correct++;
+                
+                if (correct === 2) {
+                    resultMessage.textContent = "Correct! You've completed Module 3.";
+                    resultMessage.className = "result-message correct";
+                    
+                    // Update progress in localStorage
+                    const progress = JSON.parse(localStorage.getItem('courseProgress')) || {};
+                    progress.module3 = true;
+                    localStorage.setItem('courseProgress', JSON.stringify(progress));
+                    
+                    // Enable next module button
+                    nextButton.style.pointerEvents = "auto";
+                    nextButton.style.opacity = "1";
+                } else {
+                    resultMessage.textContent = `You got ${correct} out of 2 questions correct. Please review and try again.`;
+                    resultMessage.className = "result-message incorrect";
+                }
+                
+                resultMessage.style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
