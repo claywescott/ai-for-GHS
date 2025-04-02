@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - AI for Global Health Security</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        header {
+            background-color: #005a87;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #005a87;
+        }
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .columns {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .column {
+            flex: 1;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .instructor-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .instructor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .instructor-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .instructor-info {
+            padding: 15px;
+        }
+        .instructor-name {
+            font-weight: bold;
+            color: #005a87;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .instructor-title {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        .instructor-bio {
+            font-size: 0.9em;
+        }
+        .quote-container {
+            background-color: #f0f7fa;
+            padding: 30px;
+            border-radius: 5px;
+            margin: 30px 0;
+            position: relative;
+        }
+        .quote-text {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .quote-author {
+            font-weight: bold;
+            text-align: right;
+        }
+        .quote-marks {
+            position: absolute;
+            font-size: 4em;
+            color: rgba(0, 90, 135, 0.1);
+            line-height: 1;
+        }
+        .quote-marks.left {
+            top: 20px;
+            left: 20px;
+        }
+        .quote-marks.right {
+            bottom: 20px;
+            right: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #005a87;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        .btn:hover {
+            background-color: #004a70;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GCSP AI Training</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="resources.html">Resources</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>About the AI for Global Health Security Course</h1>
+
+        <div class="columns">
+            <div class="column">
+                <h2>Course Overview</h2>
+                <p>The "AI for Global Health Security" course is a specialized module within the Geneva Centre for Security Policy's (GCSP) "Addressing Challenges in Global Health Security" program. This introductory course is designed to equip health security professionals with the essential knowledge and skills to leverage artificial intelligence tools in their work.</p>
+                
+                <p>As artificial intelligence technologies become increasingly accessible and powerful, understanding how to effectively use these tools has become a valuable competency for professionals working in global health security. This course provides a foundation in AI concepts, practical skills for using AI tools, and specific applications relevant to health security contexts.</p>
+            </div>
+            <div class="column">
+                <div class="image-container">
+                    <img src="images/earth-globe-with-transparent-overlay-showing-interconnected-networks-symbolizing-globalization_1170794-286619.jpg" alt="AI for Health Security Concept" />
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-container">
+            <div class="quote-marks left">"</div>
+            <div class="quote-text">Artificial intelligence tools, when used responsibly and effectively, can significantly enhance our capacity to detect, prepare for, and respond to health security threats. This course aims to demystify AI and make these powerful tools accessible to all health security professionals.</div>
+            <div class="quote-author">— Dr. Gilles Poumerol, Course Director, GCSP</div>
+            <div class="quote-marks right">"</div>
+        </div>
+
+        <h2>Learning Goals</h2>
+        <p>By the end of this course, participants will be able to:</p>
+        <ul>
+            <li>Understand the basics of generative AI and how it can be applied to health security challenges</li>
+            <li>Access and navigate common AI platforms and tools</li>
+            <li>Craft effective prompts to generate useful information and insights</li>
+            <li>Identify specific applications of AI in global health security contexts</li>
+            <li>Recognize the ethical considerations and limitations of AI in health security applications</li>
+        </ul>
+
+        <h2>Target Audience</h2>
+        <p>This course is designed for various professionals working in health security, including:</p>
+        <ul>
+            <li>Public health officials and epidemiologists</li>
+            <li>Emergency management and disaster response personnel</li>
+            <li>Health policy analysts and researchers</li>
+            <li>International organization staff working on health security</li>
+            <li>NGO staff involved in health emergency preparedness and response</li>
+            <li>Security sector professionals with health security responsibilities</li>
+        </ul>
+
+        <p>No prior experience with artificial intelligence or advanced technical knowledge is required. The course is designed to be accessible to all participants regardless of their technical background.</p>
+
+        <h2>Course Structure</h2>
+        <p>The course consists of four modules:</p>
+        <ol>
+            <li><strong>Introduction to Generative AI</strong> - Understanding the basics of AI technology and its capabilities</li>
+            <li><strong>Getting Started with AI Tools</strong> - Accessing and navigating popular AI platforms</li>
+            <li><strong>Crafting Effective Prompts</strong> - Learning to create prompts that generate useful, accurate information</li>
+            <li><strong>AI Applications in Global Health Security</strong> - Exploring specific use cases and applications in health security contexts</li>
+        </ol>
+        <p>Each module includes knowledge checks and practical exercises to reinforce learning. The course culminates in a final assessment that tests comprehension of all modules.</p>
+
+        <h2>Course Instructors</h2>
+        
+        <div class="instructor-grid">
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Dr. Gilles Poumerol" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Dr. Gilles Poumerol</div>
+                    <div class="instructor-title">Course Director, Associate Fellow, GCSP</div>
+                    <div class="instructor-bio">Former WHO staff member focusing on epidemics and pandemics prevention and control. Expert in global health security and international health regulations.</div>
+                </div>
+            </div>
+            
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Dr. Thomas Cherian" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Dr. Thomas Cherian</div>
+                    <div class="instructor-title">Managing Partner, MMGH Consulting</div>
+                    <div class="instructor-bio">Former Coordinator of the Expanded Programme on Immunization at WHO. Expert in global immunization programs and vaccine-preventable disease control.</div>
+                </div>
+            </div>
+            
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Dr. Filippa Lentzos" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Dr. Filippa Lentzos</div>
+                    <div class="instructor-title">Expert in Biological Threats and Biosecurity</div>
+                    <div class="instructor-bio">Specialist in biological threats, biosecurity, biorisk management, and biological arms control. Reader at King's College London.</div>
+                </div>
+            </div>
+            
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Ms. Emma Ross" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Ms. Emma Ross</div>
+                    <div class="instructor-title">Global Health Security Lead, Chatham House</div>
+                    <div class="instructor-bio">Senior Consulting Fellow at the Chatham House Centre on Global Health Security, focusing on health security policy and international cooperation.</div>
+		</div>
+            </div>
+            
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Dr. David Heyman" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Dr. David Heyman</div>
+                    <div class="instructor-title">Professor at the London School of Hygiene and Tropical Medicine </div>
+                    <div class="instructor-bio"> Former WHO Assistant Director General in charge of communicable diseases prevention and control </div>
+		</div>
+            </div>
+            
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Dr. Jean-Marie Okwo Bele" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Dr. Jean-Marie Okwo Bele</div>
+                    <div class="instructor-title">Public Health Consultant</div>
+                    <div class="instructor-bio"> Former Director of the Department of Immunization, Vaccines and Biologicals, at the WHO</div>
+		</div>
+            </div>
+            
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Dr. Stefano Lazzari" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Dr. Stefano Lazzari</div>
+                    <div class="instructor-title">Public Health Consultant</div>
+                    <div class="instructor-bio"> Former WHO Director of the Lyon WHO office on Emergency Preparedness and Response</div>
+		</div>
+            </div>
+            
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Mr. Michel Zaffran" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Mr. Michel Zaffran</div>
+                    <div class="instructor-title">Public Health Consultant</div>
+                    <div class="instructor-bio"> Former Director of the Polio eradication programme at the WHO</div>
+		</div>
+            </div>
+            
+            <div class="instructor-card">
+                <div class="instructor-image">
+                    <img src="/api/placeholder/250/200" alt="Dr. Clay Wescott" />
+                </div>
+                <div class="instructor-info">
+                    <div class="instructor-name">Dr. Clay Wescott</div>
+                    <div class="instructor-title">Public Management Consultant</div>
+                    <div class="instructor-bio"> Former staff of Asian Development Bank focusing on Governance and Regional Cooperation; focal point for Bank's SARS response (2003)</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>About GCSP</h2>
+        <p>The Geneva Centre for Security Policy (GCSP) is an international foundation established in 1995 to promote peace, security, and international cooperation. The Centre designs and delivers executive education courses for government officials, diplomats, military officers, international civil servants, NGO staff, and business executives on comprehensive international peace and security policy issues.</p>
+        
+        <p>This course is part of the GCSP's commitment to addressing emerging challenges in global security, including those related to health security and technological change.</p>
+        
+        <a href="module1.html" class="btn">Start Learning Now</a>
+    </main>
+
+    <footer>
+        <p>© 2025 Clay G. Wescott | This course is part of the "Addressing Challenges in Global Health Security" program</p>
+    </footer>
+</body>
+</html>
